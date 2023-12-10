@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{408a5b56-a509-48bd-872c-2070bc4f4ab5}</ProjectGuid>
+    <RootNamespace>ultimate</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>RustInternalRecode</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <IncludePath>F:\Files\DirectX SDK 2010\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\Files\DirectX SDK 2010\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <IncludePath>F:\Files\DirectX SDK 2010\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\Files\DirectX SDK 2010\Lib\x86;$(LibraryPath)</LibraryPath>
+    <TargetName>cheat</TargetName>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Label="LLVM" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClangClExecutable>C:\Program Files\LLVM\bin\clang-cl.exe</ClangClExecutable>
+    <LldLinkExecutable>C:\Program Files\LLVM\bin\lld-link.exe</LldLinkExecutable>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;JM_XORSTR_DISABLE_AVX_INTRINSICS;_NO_CRT_STDIO_INLINE;_KERNEL_MODE;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <GuardEHContMetadata>false</GuardEHContMetadata>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/Zc:strictStrings- /Zc:threadSafeInit- /Gs99999 %(AdditionalOptions)</AdditionalOptions>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <EntryPointSymbol>CRTDllMain</EntryPointSymbol>
+      <AdditionalOptions>/MERGE:.rdata=.text /pdbaltpath:%_PDB% /nocoffgrpinfo %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>ntdll.lib;msvcrt_b.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;JM_XORSTR_DISABLE_AVX_INTRINSICS;_NO_CRT_STDIO_INLINE;_KERNEL_MODE;_HAS_EXCEPTIONS=0;STB_SPRINTF_IMPLEMENTATION;JSON_NO_IO;DEFINE_JSON;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <EnableEnhancedInstructionSet>NoExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/Zc:strictStrings- /Zc:threadSafeInit- /Gs99999 %(AdditionalOptions)</AdditionalOptions>
+      <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <EntryPointSymbol>DllMain</EntryPointSymbol>
+      <AdditionalOptions>/merge:.pdata=.text /merge:.gay=.text %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>ntdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateMapFile>true</GenerateMapFile>
+      <IgnoreSpecificDefaultLibraries>msvcrt.dll;ole32.lib;uuid.lib;odbccp32.lib;winspool.lib;comdlg32.lib;oleaut32.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Configs\Configs.cpp" />
+    <ClCompile Include="Core\ConnectionManager\ConnectionManager.cpp" />
+    <ClCompile Include="Core\Core.cpp" />
+    <ClCompile Include="Core\CRT\color.cpp" />
+    <ClCompile Include="Core\CRT\crt.cpp" />
+    <ClCompile Include="Core\CRT\math.cpp" />
+    <ClCompile Include="Core\CRT\mutex\smutex.cpp" />
+    <ClCompile Include="Core\Hooking\BlockSprint\BlockSprint.cpp" />
+    <ClCompile Include="Core\Hooking\BowIsAiming\IsAiming.cpp" />
+    <ClCompile Include="Core\Hooking\DoAttackBaseMelee\DoAttackBaseMelee.cpp" />
+    <ClCompile Include="Core\Hooking\DoBowAttack\DoBowAttack.cpp" />
+    <ClCompile Include="Core\Hooking\FlintStrikeWeaponAttack\FlintStrikeWeaponDoAttack.cpp" />
+    <ClCompile Include="Core\Hooking\GetRandomVelocity\GetRandomVelocity.cpp" />
+    <ClCompile Include="Core\Hooking\LateUpdate\LateUpdate.cpp" />
+    <ClCompile Include="Core\Hooking\OnAttacked\OnAttacked.cpp" />
+    <ClCompile Include="Core\Hooking\OnInput\OnInput.cpp" />
+    <ClCompile Include="Core\Hooking\OnNetworkMessage\OnNetworkMessage.cpp" />
+    <ClCompile Include="Core\Hooking\PlayerProjectileAttack\PlayerProjectileAttack.cpp" />
+    <ClCompile Include="Core\Hooking\DoAttack\DoAttack.cpp" />
+    <ClCompile Include="Core\Features\EyeHack\EyeHack.cpp" />
+    <ClCompile Include="Core\Features\Features\Features.cpp" />
+    <ClCompile Include="Core\Features\Visuals\Visuals.cpp" />
+    <ClCompile Include="Core\Hooking\ClientInput\ClientInput.cpp" />
+    <ClCompile Include="Core\Hooking\Hooks.cpp" />
+    <ClCompile Include="Core\Hooking\OnGUI\OnGUI.cpp" />
+    <ClCompile Include="Core\Hooking\PlayerWalkMovement\PlayerWalkMovement.cpp" />
+    <ClCompile Include="Core\Hooking\ProcessAttack\ProcessAttack.cpp" />
+    <ClCompile Include="Core\Hooking\ProjectileUpdate\ProjectileUpdate.cpp" />
+    <ClCompile Include="Core\Hooking\SkyUpdate\SkyUpdate.cpp" />
+    <ClCompile Include="Core\Hooking\SteamPlatform\SteamPlatform.cpp" />
+    <ClCompile Include="Core\Hooking\TryToMove\TryToMove.cpp" />
+    <ClCompile Include="Core\Hooking\UpdateOnGUI\UpdateOnGUI.cpp" />
+    <ClCompile Include="Core\Hooking\WriteToStream\melee_aimbot.cpp" />
+    <ClCompile Include="Core\Hooking\WriteToStream\WriteToStream.cpp" />
+    <ClCompile Include="Core\Il2Cpp\CIl2Cpp.cpp" />
+    <ClCompile Include="Core\Il2Cpp\il2cpp-api.cpp" />
+    <ClCompile Include="Core\MenuFramework\Drawing\Drawing.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\button\button.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\checkbox\checkbox.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\colorpicker\colorpicker.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\dropdown\dropdown.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\groupbox\groupbox.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\keybind\keybind.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\listbox\listbox.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\slider\slider.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\textbox\textbox.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\framework\components\window\window.cpp" />
+    <ClCompile Include="Core\MenuFramework\gui\gui.cpp" />
+    <ClCompile Include="Core\MenuFramework\Menu\Menu.cpp" />
+    <ClCompile Include="Core\Net\ConfigManager.cpp" />
+    <ClCompile Include="Core\Net\data.cpp" />
+    <ClCompile Include="Core\Net\miniz.c" />
+    <ClCompile Include="Core\Net\net.cpp" />
+    <ClCompile Include="Core\Net\offsets.cpp" />
+    <ClCompile Include="Core\Net\reader.cpp" />
+    <ClCompile Include="Core\Net\steam_session.cpp" />
+    <ClCompile Include="Core\Net\writer.cpp" />
+    <ClCompile Include="Core\SDK\AssemblyCSharp\AssemblyCSharp.cpp" />
+    <ClCompile Include="Core\SDK\Network\Network.cpp" />
+    <ClCompile Include="Core\SDK\ProtoBuf\ProtoBuf.cpp" />
+    <ClCompile Include="Core\SDK\UnityEngine\UnityEngine.cpp" />
+    <ClCompile Include="Core\Utils\lazy.hpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Configs\Configs.hpp" />
+    <ClInclude Include="Core\Config\Config.h" />
+    <ClInclude Include="Core\ConnectionManager\ConnectionManager.hpp" />
+    <ClInclude Include="Core\Core.hpp" />
+    <ClInclude Include="Core\CRT\color.hpp" />
+    <ClInclude Include="Core\CRT\crt.hpp" />
+    <ClInclude Include="Core\CRT\math.hpp" />
+    <ClInclude Include="Core\CRT\memory.hpp" />
+    <ClInclude Include="Core\CRT\mutex\mutex_misc.hpp" />
+    <ClInclude Include="Core\CRT\mutex\recursive_mutex.hpp" />
+    <ClInclude Include="Core\CRT\mutex\scoped_mutex.hpp" />
+    <ClInclude Include="Core\CRT\mutex\smutex.hpp" />
+    <ClInclude Include="Core\Features\EyeHack\EyeHack.hpp" />
+    <ClInclude Include="Core\Features\Features\Features.hpp" />
+    <ClInclude Include="Core\Features\Notifications\Notifications.hpp" />
+    <ClInclude Include="Core\Features\Visuals\Visuals.hpp" />
+    <ClInclude Include="Core\Hooking\ClientInput\flyhack.h" />
+    <ClInclude Include="Core\Hooking\Hooker.hpp" />
+    <ClInclude Include="Core\Hooking\Hooks.hpp" />
+    <ClInclude Include="Core\Hooking\WriteToStream\Prediction.hpp" />
+    <ClInclude Include="Core\Hooks\HasPermission\HasPermission.h" />
+    <ClInclude Include="Core\Il2Cpp\CIl2Cpp.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-api-functions.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-api-types.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-api.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-blob.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-class-internals.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-config-api.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-config.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-metadata.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-object-internals.hpp" />
+    <ClInclude Include="Core\Il2Cpp\il2cpp-runtime-metadata.hpp" />
+    <ClInclude Include="Core\Includes\colorsettings.hpp" />
+    <ClInclude Include="Core\Includes\includes.hpp" />
+    <ClInclude Include="Core\CRT\ntwinddk.hpp" />
+    <ClInclude Include="Core\Includes\settings.hpp" />
+    <ClInclude Include="Core\json.hpp" />
+    <ClInclude Include="Core\MenuFramework\Drawing\Drawing.hpp" />
+    <ClInclude Include="Core\MenuFramework\gui\framework\calliope.hpp" />
+    <ClInclude Include="Core\MenuFramework\gui\gui.hpp" />
+    <ClInclude Include="Core\MenuFramework\gui\translation.h" />
+    <ClInclude Include="Core\MenuFramework\Menu\Menu.hpp" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamApps.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamClient.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamFriends.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamGameserver.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamGameServerStats.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamMasterServerUpdater.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamMatchMaking.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamNetworking.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamNetworkingSockets.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamNetworkingTypes.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamRemoteStorage.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamUser.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamUserStats.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\ISteamUtils.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\matchMakingTypes.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\steamClientPublic.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\steamTypes.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\steam_api.h" />
+    <ClInclude Include="Core\Net\3rd_party\steam\steam_gameserver.h" />
+    <ClInclude Include="Core\Net\config.h" />
+    <ClInclude Include="Core\Net\ConfigManager.h" />
+    <ClInclude Include="Core\Net\data.h" />
+    <ClInclude Include="Core\Net\file_share.h" />
+    <ClInclude Include="Core\Net\fnv1a.h" />
+    <ClInclude Include="Core\Net\miniz.h" />
+    <ClInclude Include="Core\Net\net.h" />
+    <ClInclude Include="Core\Net\offsets.h" />
+    <ClInclude Include="Core\Net\reader.h" />
+    <ClInclude Include="Core\Net\singleton.h" />
+    <ClInclude Include="Core\Net\steam_session.h" />
+    <ClInclude Include="Core\Net\writer.h" />
+    <ClInclude Include="Core\SDK\AssemblyCSharp\AssemblyCSharp.hpp" />
+    <ClInclude Include="Core\SDK\AssemblyCSharp\ProjectileCode.hpp" />
+    <ClInclude Include="Core\SDK\Network\Network.hpp" />
+    <ClInclude Include="Core\SDK\ProtoBuf\ProtoBuf.h" />
+    <ClInclude Include="Core\SDK\RustStructs.h" />
+    <ClInclude Include="Core\SDK\System\System.hpp" />
+    <ClInclude Include="Core\SDK\UnityEngine\UnityEngine.hpp" />
+    <ClInclude Include="Core\Utils\crc32.hpp" />
+    <ClInclude Include="Core\Utils\hash.hpp" />
+    <ClInclude Include="Core\Utils\json.hpp" />
+    <ClInclude Include="Core\Utils\stb_sprintf.h" />
+    <ClInclude Include="Core\Utils\xorstr.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
