@@ -1635,7 +1635,7 @@ void Hooks::OnGUI(AssemblyCSharp::ExplosionsFPS* _This)
 	//	LoadFontBundle();
 
 	//if (font_bundle)
-	{
+	{//
 		SetupStyles();
 
 		GUI().SetupGUI();
